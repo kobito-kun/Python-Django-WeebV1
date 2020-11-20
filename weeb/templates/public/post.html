@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="title"></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<header>
+	<div id="main-information">
+		<div id="the-stuff-inside">
+			<img src="/media/mika.jpg">
+			<h2>@TrueDarkness</h2>
+		</div>
+	</div>
+</header>
+
+<style>
+body{
+	text-align: center;
+}
+.box{
+	flex: 0 0 19%;
+}
+
+</style>
+
+<body>
+
+<center>
+	<br>
+	<h2 id="welcome"></h2>
+	<hr style="width: 30%"><br>
+</center>
+
+<center>
+	<div id="box">
+		<h4>{{post.title}}</h4>
+		<img src="/media/{{post.image}}">
+		<h4>{{post.description}}</h4>
+		<h4>{{post.date}}</h4>
+		<h4>{{post.type}}</h4>
+	</div>
+</center>
+</body>
+
+<script type="text/javascript">
+window.addEventListener('load', typeWriter);
+var i = 0;
+var txt = '𝓣𝓻𝓾𝓮𝓓𝓪𝓻𝓴𝓷𝓮𝓼𝓼! '; /* The text */
+var speed = 200; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("title").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+  if (i == txt.length) {
+  	document.getElementById("title").innerHTML = "";
+  	i = 0;
+  }
+}
+
+window.addEventListener('load', alright);
+var num = 0;
+var text = 'Hi! Welcome to my site!'; /* The text */
+var speed2 = 100;
+
+function alright() {
+  if (num < text.length) {
+    document.getElementById("welcome").innerHTML += text.charAt(num);
+    num++;
+    setTimeout(alright, speed2);
+  }
+}
+
+
+</script>
+
+</html>
